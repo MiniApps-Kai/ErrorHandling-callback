@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var articleViewModel = ArticleViewModel()
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        List(articleViewModel.articles) { article in
+            Text(article.title)
         }
-        .padding()
+        .onAppear(perform: articleViewModel.onAppear)
     }
 }
 
