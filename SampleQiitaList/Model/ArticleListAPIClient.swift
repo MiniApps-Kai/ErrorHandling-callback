@@ -20,6 +20,10 @@ class ArticleListAPIClient {
         let reqest = URLRequest(url: url)
         URLSession.shared.dataTask(with: reqest) { (data, response, error) in
             //responseはステータスコード
+//            if let res = response as? HTTPURLResponse {
+//                print(res.statusCode)
+//            }
+            
             do {
                 guard let data = data else {
                     //データが取得できない場合
